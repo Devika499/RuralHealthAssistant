@@ -1,0 +1,2 @@
+RAG/*.pkl filter=lfs diff=lfs merge=lfs -text
+RAG/*.faiss filter=lfs diff=lfs merge=lfs -text
