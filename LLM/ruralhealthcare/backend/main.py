@@ -21,6 +21,9 @@ from symptom_checker import start_session as sc_start_session, answer_question a
 import requests
 import shutil
 from fastapi.staticfiles import StaticFiles
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -941,8 +944,9 @@ async def diet_recommendation(
 
         # 2. Call Groq Llama API
         llama_api_url = "https://api.groq.com/openai/v1/chat/completions"
+        GROQ_API_KEY = os.getenv("GROQ_API_KEY")
         headers = {
-            "Authorization": "Bearer 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",
+            "Authorization": f"Bearer {GROQ_API_KEY}",
             "Content-Type": "application/json"
         }
         payload = {
